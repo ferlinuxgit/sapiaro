@@ -1,0 +1,12 @@
+services:
+  - type: web
+    name: owl-webapp
+    env: docker
+    plan: free
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.10.0
+      - key: PORT
+        value: 8000
+    healthCheckPath: /
+    autoDeploy: true 
