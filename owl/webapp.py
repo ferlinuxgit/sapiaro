@@ -1294,12 +1294,13 @@ def main():
         app = create_ui()
 
         app.queue()
-        app.launch(share=False, favicon_path="../assets/owl-favicon.ico")
+        # Get port from environment variable or use default
+        port = int(os.environ.get("PORT", 8000))
+        app.launch(server_name="0.0.0.0", server_port=port, share=False, favicon_path="../assets/owl-favicon.ico")
     except Exception as e:
         logging.error(f"Error occurred while starting the application: {str(e)}")
         print(f"Error occurred while starting the application: {str(e)}")
         import traceback
-
         traceback.print_exc()
 
     finally:
